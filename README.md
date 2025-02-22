@@ -1,5 +1,3 @@
-I'll document the entire project component by component, explaining their roles and key features:
-
 # Project Documentation
 
 ## Core Components
@@ -167,5 +165,3 @@ Effects:
 - Specialized materials for energy beam
 - Emissive materials for engine glow
 ```
-
-This documentation provides a comprehensive overview of the project's structure and functionality. Each component is designed to work together to create a cohesive and interactive 3D space flight experience.
