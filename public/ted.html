@@ -1,0 +1,736 @@
+<!DOCTYPE html><html><head>
+      <title>ted</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="experiment-1-git-pushpull-html-files-windows"><strong>EXPERIMENT 1: Git Push/Pull HTML Files (Windows)</strong> </h2>
+<h2 id="what-youll-do"><strong>What You’ll Do</strong> </h2>
+<ul>
+<li>
+<p>Push 3 HTML files from your Windows PC to GitHub.</p>
+</li>
+<li>
+<p>Pull them back to confirm success.</p>
+</li>
+</ul>
+<h2 id="step-1-install-git"><strong>Step 1: Install Git</strong> </h2>
+<ol>
+<li>
+<p>Download <a href="https://git-scm.com/download/win">Git for Windows</a>.</p>
+</li>
+<li>
+<p>Run the installer. Keep all default settings (check "Git Bash" and "Windows Explorer Integration").</p>
+</li>
+</ol>
+<h2 id="step-2-create-html-files"><strong>Step 2: Create HTML Files</strong> </h2>
+<ol>
+<li>
+<p>Open <strong>File Explorer</strong>, go to <code>Desktop</code>, and create a folder named <code>devops-demo</code>.</p>
+</li>
+<li>
+<p>Inside this folder, create 3 files:</p>
+<ul>
+<li>
+<p><code>index.html</code></p>
+</li>
+<li>
+<p><code>about.html</code></p>
+</li>
+<li>
+<p><code>contact.html</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Right-click each file &gt; <strong>Open with Notepad</strong> and add basic HTML code:</p>
+<p>xml</p>
+<p><code>&lt;!-- Example for index.html --&gt; &lt;!DOCTYPE  html&gt; &lt;html&gt; &lt;body&gt;   &lt;h1&gt;Home Page&lt;/h1&gt; &lt;/body&gt; &lt;/html&gt;</code></p>
+</li>
+</ol>
+<h2 id="step-3-push-to-github"><strong>Step 3: Push to GitHub</strong> </h2>
+<ol>
+<li>
+<p>Open <strong>Git Bash</strong> (right-click in the folder &gt; <strong>Git Bash Here</strong>).</p>
+</li>
+<li>
+<p>Run these commands:</p>
+<p>bash</p>
+<p><code># Initialize Git git init   # Link to GitHub (replace URL with your repo) git remote add origin https://github.com/your-username/your-repo.git   # Stage and commit files git  add  . git commit -m "Added 3 HTML files"   # Push to GitHub git push -u origin main</code></p>
+</li>
+</ol>
+<h2 id="step-4-validate-by-pulling"><strong>Step 4: Validate by Pulling</strong> </h2>
+<ol>
+<li>
+<p>Delete the local <code>devops-demo</code> folder (to simulate a fresh pull).</p>
+</li>
+<li>
+<p>Open <strong>Git Bash</strong> on the Desktop and run:</p>
+<p>bash</p>
+<p><code>git clone https://github.com/your-username/your-repo.git</code></p>
+</li>
+<li>
+<p>Check if the 3 HTML files reappear in the cloned folder.</p>
+</li>
+</ol>
+<h2 id="troubleshooting"><strong>Troubleshooting</strong> </h2>
+<ul>
+<li>
+<p><strong>Permission Denied</strong>: Run Git Bash as <strong>Administrator</strong>.</p>
+</li>
+<li>
+<p><strong>Authentication Failed</strong>:</p>
+<ul>
+<li>Use a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">GitHub Personal Access Token</a> instead of your password.</li>
+</ul>
+</li>
+<li>
+<p><strong>Wrong Remote URL</strong>: Fix with:</p>
+<p>bash</p>
+<p><code>git remote set-url origin https://github.com/your-username/your-repo.git</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="experiment-2-build-a-java-program-addition-of-2-numbers-via-jenkins"><strong>EXPERIMENT 2: Build a Java Program (Addition of 2 Numbers) via Jenkins</strong> </h2>
+<p><strong>Objective</strong>: Automate compilation of a Java program using Jenkins on Windows.</p>
+<h2 id="tools-required"><strong>Tools Required</strong> </h2>
+<ol>
+<li>
+<p>Java JDK 11+ (<a href="https://adoptium.net/">Download</a>)</p>
+</li>
+<li>
+<p>Jenkins for Windows (<a href="https://www.jenkins.io/download/">Download</a>)</p>
+</li>
+<li>
+<p>GitHub account (to host your Java code)</p>
+</li>
+</ol>
+<h2 id="step-by-step-guide"><strong>Step-by-Step Guide</strong> </h2>
+<h2 id="1-install-java-jdk"><strong>1. Install Java JDK</strong> </h2>
+<ol>
+<li>
+<p>Download the <strong>Windows x64 MSI Installer</strong> from Adoptium.</p>
+</li>
+<li>
+<p>Run the installer.</p>
+</li>
+<li>
+<p>Set <code>JAVA_HOME</code> environment variable:</p>
+<ul>
+<li>
+<p>Press <code>Win + S</code> &gt; Search for <strong>Edit environment variables</strong>.</p>
+</li>
+<li>
+<p>Under <strong>System variables</strong>, add:</p>
+<ul>
+<li>
+<p>Variable name: <code>JAVA_HOME</code></p>
+</li>
+<li>
+<p>Variable value: <code>C:\Program Files\Eclipse Adoptium\jdk-11.0.xx.x-hotspot</code> (replace with your JDK path)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Add Java to <code>Path</code>:</p>
+<ul>
+<li>Edit <strong>Path</strong> variable &gt; Add <code>%JAVA_HOME%\bin</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-install-jenkins"><strong>2. Install Jenkins</strong> </h2>
+<ol>
+<li>
+<p>Download the <strong>Windows installer</strong> from <a href="https://www.jenkins.io/download/">jenkins.io</a>.</p>
+</li>
+<li>
+<p>Run the installer. Jenkins will start automatically on <code>http://localhost:8080</code>.</p>
+</li>
+<li>
+<p>Unlock Jenkins:</p>
+<ul>
+<li>Retrieve the initial admin password from <code>C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword</code>.</li>
+</ul>
+</li>
+<li>
+<p>Install suggested plugins.</p>
+</li>
+</ol>
+<h2 id="3-prepare-the-java-program"><strong>3. Prepare the Java Program</strong> </h2>
+<ol>
+<li>
+<p>Create a file <code>AddNumbers.java</code> on your desktop:</p>
+<p>java</p>
+<p><code>public  class  AddNumbers  {   public  static  void  main(String[] args)  { int a =  10, b =  20; System.out.println("Sum: "  +  (a + b)); } }</code></p>
+</li>
+<li>
+<p>Push this file to a GitHub repository (see Experiment 1 if needed).</p>
+</li>
+</ol>
+<h2 id="4-configure-jenkins-job"><strong>4. Configure Jenkins Job</strong> </h2>
+<ol>
+<li>
+<p>In Jenkins, click <strong>New Item</strong> &gt; <strong>Freestyle project</strong> &gt; Name it <code>Java-Build-Demo</code>.</p>
+</li>
+<li>
+<p>Under <strong>Source Code Management</strong>:</p>
+<ul>
+<li>Select <strong>Git</strong> &gt; Enter your repository URL (e.g., <code>https://github.com/your-username/java-demo.git</code>).</li>
+</ul>
+</li>
+<li>
+<p>Under <strong>Build Steps</strong>:</p>
+<ul>
+<li>
+<p>Click <strong>Add build step</strong> &gt; <strong>Execute Windows batch command</strong>.</p>
+</li>
+<li>
+<p>Enter:</p>
+<p>text</p>
+<p><code>javac AddNumbers.java java AddNumbers</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save and click <strong>Build Now</strong>.</p>
+</li>
+</ol>
+<h2 id="5-validate-the-output"><strong>5. Validate the Output</strong> </h2>
+<ol>
+<li>
+<p>Check the <strong>Console Output</strong> of the build job.</p>
+</li>
+<li>
+<p>You should see:</p>
+<p>text</p>
+<p><code>Sum: 30</code></p>
+</li>
+</ol>
+<h2 id="troubleshooting-1"><strong>Troubleshooting</strong> </h2>
+<ul>
+<li>
+<p><strong>‘javac’ not recognized</strong>: Ensure <code>JAVA_HOME</code> and <code>Path</code> are configured correctly.</p>
+</li>
+<li>
+<p><strong>Build fails</strong>: Check for typos in the Java code or GitHub URL.</p>
+</li>
+<li>
+<p><strong>Permission issues</strong>: Run Jenkins as Administrator (right-click Jenkins shortcut &gt; <strong>Run as administrator</strong>).</p>
+</li>
+</ul>
+<hr>
+<p>Let’s tackle <strong>Experiment 3</strong>! 🕒</p>
+<h2 id="experiment-3-continuous-integration-in-jenkins-build-every-2-minutes"><strong>EXPERIMENT 3: Continuous Integration in Jenkins (Build Every 2 Minutes)</strong> </h2>
+<p><strong>Objective</strong>: Automatically build a Java program every 2 minutes from a GitHub repository.</p>
+<h2 id="tools-required-1"><strong>Tools Required</strong> </h2>
+<ul>
+<li>
+<p>Jenkins (already installed from Experiment 2)</p>
+</li>
+<li>
+<p>Java JDK (configured in Experiment 2)</p>
+</li>
+<li>
+<p>GitHub repository with your Java code</p>
+</li>
+</ul>
+<h2 id="step-by-step-guide-1"><strong>Step-by-Step Guide</strong> </h2>
+<h2 id="1-update-your-github-repository"><strong>1. Update Your GitHub Repository</strong> </h2>
+<ol>
+<li>
+<p>Ensure your <code>AddNumbers.java</code> file is in a GitHub repo (created in Experiment 2).</p>
+</li>
+<li>
+<p>Add a <code>pom.xml</code> (Maven) file to automate builds. Create it with:</p>
+<p>xml</p>
+<p><code>&lt;project&gt;   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; &lt;groupId&gt;com.example&lt;/groupId&gt; &lt;artifactId&gt;add-numbers&lt;/artifactId&gt; &lt;version&gt;1.0&lt;/version&gt; &lt;/project&gt;</code></p>
+</li>
+</ol>
+<h2 id="2-configure-jenkins-polling"><strong>2. Configure Jenkins Polling</strong> </h2>
+<ol>
+<li>
+<p>Open your existing Jenkins job (<code>Java-Build-Demo</code> from Experiment 2).</p>
+</li>
+<li>
+<p>Under <strong>Build Triggers</strong>, check <strong>Poll SCM</strong>.</p>
+</li>
+<li>
+<p>In the schedule box, enter:</p>
+<p>text</p>
+<p><code>H/2 * * * *</code></p>
+<p><em>(This cron syntax triggers a poll every 2 minutes)</em>.</p>
+</li>
+</ol>
+<h2 id="3-modify-the-build-step"><strong>3. Modify the Build Step</strong> </h2>
+<ol>
+<li>
+<p>Under <strong>Build</strong>, replace the existing batch command with:</p>
+<p>text</p>
+<p><code>mvn clean compile</code></p>
+<p><em>(This uses Maven to compile the Java program)</em>.</p>
+</li>
+</ol>
+<h2 id="4-test-automatic-builds"><strong>4. Test Automatic Builds</strong> </h2>
+<ol>
+<li>
+<p>Make a small change to <code>AddNumbers.java</code> (e.g., modify the numbers to <code>a = 15, b = 25</code>).</p>
+</li>
+<li>
+<p>Commit and push the change to GitHub:</p>
+<p>bash</p>
+<p><code>git  add AddNumbers.java git commit -m "Trigger CI build" git push origin main</code></p>
+</li>
+<li>
+<p>Wait up to 2 minutes. Jenkins will detect the change and auto-trigger a build.</p>
+</li>
+</ol>
+<h2 id="5-validate-results"><strong>5. Validate Results</strong> </h2>
+<ol>
+<li>
+<p>Check the <strong>Build History</strong> in Jenkins for new builds.</p>
+</li>
+<li>
+<p>View the <strong>Console Output</strong> of the latest build. You should see:</p>
+<p>text</p>
+<p><code>[INFO] BUILD SUCCESS</code></p>
+</li>
+</ol>
+<h2 id="troubleshooting-2"><strong>Troubleshooting</strong> </h2>
+<ul>
+<li>
+<p><strong>Build Not Triggered</strong>:</p>
+<ul>
+<li>
+<p>Verify the cron syntax in <strong>Poll SCM</strong>.</p>
+</li>
+<li>
+<p>Ensure Jenkins has read access to your GitHub repo.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Maven Not Found</strong>: Install the <a href="https://plugins.jenkins.io/maven-plugin/">Maven plugin</a> in Jenkins.</p>
+</li>
+<li>
+<p><strong>No Changes Detected</strong>: Add a dummy file to your repo to force a change.</p>
+</li>
+</ul>
+<hr>
+<h2 id="4-cicd-scripted-pipeline-for-xampp-deployment"><strong>4. CI/CD Scripted Pipeline for XAMPP Deployment</strong> </h2>
+<p><strong>Objective</strong>: Automatically deploy 3 HTML files from GitHub to XAMPP server using Jenkins.</p>
+<hr>
+<h3 id="tools-required-2"><strong>Tools Required</strong> </h3>
+<ul>
+<li>Jenkins (Windows)</li>
+<li>XAMPP Server (<code>C:\xampp\htdocs</code>)</li>
+<li>GitHub repository with 3 HTML files</li>
+</ul>
+<hr>
+<h3 id="jenkinsfile-scripted-pipeline"><strong>Jenkinsfile (Scripted Pipeline)</strong> </h3>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>node <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Clone GitHub repo</span>
+        git <span class="token string">'https://github.com/your-username/html-repo.git'</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Deploy'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        bat <span class="token interpolation-string"><span class="token string">"""
+            xcopy /Y /E "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">WORKSPACE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">\\*.html" "C:\\xampp\\htdocs\\"
+            net stop Apache2.4
+            net start Apache2.4
+        """</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="setup-instructions"><strong>Setup Instructions</strong> </h3>
+<h4 id="1-configure-xampp"><strong>1. Configure XAMPP</strong> </h4>
+<ol>
+<li>Install XAMPP (<a href="https://www.apachefriends.org/">Download</a>) to <code>C:\xampp</code>.</li>
+<li>Start Apache via XAMPP Control Panel.</li>
+</ol>
+<h4 id="2-create-jenkins-pipeline-job"><strong>2. Create Jenkins Pipeline Job</strong> </h4>
+<ol>
+<li>In Jenkins, create a <strong>New Item</strong> &gt; <strong>Pipeline</strong>.</li>
+<li>Under <strong>Pipeline</strong>:
+<ul>
+<li>Select <strong>Pipeline script from SCM</strong> &gt; <strong>Git</strong>.</li>
+<li>Add your GitHub repo URL.</li>
+<li>Set <strong>Script Path</strong> to <code>Jenkinsfile</code>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-run-the-pipeline"><strong>3. Run the Pipeline</strong> </h4>
+<ol>
+<li>Click <strong>Build Now</strong> to trigger manually.</li>
+<li>Jenkins will:
+<ul>
+<li>Clone the repo.</li>
+<li>Copy HTML files to <code>C:\xampp\htdocs</code>.</li>
+<li>Restart Apache.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="validation"><strong>Validation</strong> </h3>
+<ol>
+<li>Open browser and navigate to:
+<ul>
+<li><code>http://localhost/index.html</code></li>
+<li>Replace <code>index.html</code> with your actual filenames.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="troubleshooting-3"><strong>Troubleshooting</strong> </h3>
+<ul>
+<li><strong>Permission Denied</strong>:
+<ul>
+<li>Run Jenkins <strong>as Administrator</strong> (right-click shortcut &gt; <strong>Run as administrator</strong>).</li>
+</ul>
+</li>
+<li><strong>Apache Fails to Restart</strong>:
+<ul>
+<li>Manually start Apache via XAMPP Control Panel.</li>
+</ul>
+</li>
+<li><strong>Files Not Copied</strong>:
+<ul>
+<li>Check workspace path in Jenkins (<code>%JENKINS_HOME%\workspace\job-name</code>).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="key-modifications-for-windows"><strong>Key Modifications for Windows</strong> </h3>
+<ul>
+<li>Use <code>bat</code> instead of <code>sh</code> for Windows commands.</li>
+<li>Escape backslashes in paths (<code>C:\\xampp\\htdocs</code>).</li>
+<li>XAMPP’s Apache service name is <code>Apache2.4</code> (use <code>net stop/start</code>).</li>
+</ul>
+<hr>
+<p>Here's a <strong>declarative pipeline</strong> to deploy HTML files from GitHub to XAMPP on Windows, optimized for readability and using Jenkins best practices from the search results:</p>
+<hr>
+<h2 id="5-cicd-declarative-pipeline-for-xampp-deployment"><strong>5. CI/CD Declarative Pipeline for XAMPP Deployment</strong> </h2>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+    agent any
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> 
+                url<span class="token punctuation">:</span> <span class="token string">'https://github.com/your-username/html-repo.git'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Deploy'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                bat <span class="token string">'''
+                    xcopy /Y "%WORKSPACE%\\*.html" "C:\\xampp\\htdocs\\"
+                    net stop Apache2.4
+                    net start Apache2.4
+                '''</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="key-components-explained"><strong>Key Components Explained</strong> </h3>
+<ol>
+<li>
+<p><strong>Checkout Stage</strong>:</p>
+<ul>
+<li>Uses Jenkins' native <code>git</code> step ([Search Result 3][4]) to clone the repository.</li>
+<li>Replace <code>your-username/html-repo</code> with your actual GitHub URL.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy Stage</strong>:</p>
+<ul>
+<li><code>xcopy</code> transfers HTML files from Jenkins workspace to XAMPP's <code>htdocs</code> directory.</li>
+<li>Apache service restart ensures changes take effect immediately.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="windows-specific-modifications"><strong>Windows-Specific Modifications</strong> </h3>
+<ol>
+<li>
+<p><strong>Path Handling</strong>:</p>
+<ul>
+<li>Use double backslashes (<code>\\</code>) in paths</li>
+<li><code>%WORKSPACE%</code> environment variable points to Jenkins job directory</li>
+</ul>
+</li>
+<li>
+<p><strong>Service Management</strong>:</p>
+<ul>
+<li><code>net stop/start</code> commands require <strong>Admin privileges</strong></li>
+<li>Run Jenkins service as Administrator (via Windows Services)</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="validation-1"><strong>Validation</strong> </h3>
+<ol>
+<li>Access deployed files at:<pre data-role="codeBlock" data-info="" class="language-text"><code>http://localhost/index.html  
+http://localhost/about.html  
+http://localhost/contact.html  
+</code></pre></li>
+<li>Check Jenkins console output for:<pre data-role="codeBlock" data-info="" class="language-text"><code>[xcopy] 3 File(s) copied  
+[Apache] The Apache2.4 service was started successfully  
+</code></pre></li>
+</ol>
+<hr>
+<h3 id="troubleshooting-4"><strong>Troubleshooting</strong> </h3>
+<ul>
+<li><strong>Permission Denied</strong>:<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>post <span class="token punctuation">{</span>
+  always <span class="token punctuation">{</span>
+    bat <span class="token string">'icacls "C:\\xampp\\htdocs" /grant Everyone:(F)'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></li>
+<li><strong>Apache Not Restarting</strong>:
+<ul>
+<li>Manually verify service status in XAMPP Control Panel</li>
+<li>Add <code>timeout 10</code> between stop/start commands</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="experiment-6-selenium-automated-testing-google-search"><strong>Experiment 6: Selenium Automated Testing (Google Search)</strong> </h3>
+<p><strong>Objective</strong>: Automate Google search for "RAIT Dypatil" using Python Selenium</p>
+<hr>
+<h4 id="tools-required-3"><strong>Tools Required</strong> </h4>
+<ol>
+<li>Python 3.6+</li>
+<li>Chrome Browser</li>
+<li>Required Packages:<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> selenium webdriver-manager
+</code></pre></li>
+</ol>
+<hr>
+<h3 id="step-by-step-implementation"><strong>Step-by-Step Implementation</strong> </h3>
+<h4 id="1-create-python-script"><strong>1. Create Python Script</strong> </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> selenium <span class="token keyword keyword-import">import</span> webdriver
+<span class="token keyword keyword-from">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword keyword-import">import</span> By
+<span class="token keyword keyword-from">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>keys <span class="token keyword keyword-import">import</span> Keys
+<span class="token keyword keyword-from">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword keyword-import">import</span> WebDriverWait
+<span class="token keyword keyword-from">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support <span class="token keyword keyword-import">import</span> expected_conditions <span class="token keyword keyword-as">as</span> EC
+<span class="token keyword keyword-from">from</span> webdriver_manager<span class="token punctuation">.</span>chrome <span class="token keyword keyword-import">import</span> ChromeDriverManager
+
+<span class="token comment"># Initialize browser</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>ChromeDriverManager<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>install<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+wait <span class="token operator">=</span> WebDriverWait<span class="token punctuation">(</span>driver<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+    <span class="token comment"># Step 1: Navigate to Google</span>
+    driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://www.google.com"</span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Step 2: Find search box</span>
+    search_box <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>
+        EC<span class="token punctuation">.</span>presence_of_element_located<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>NAME<span class="token punctuation">,</span> <span class="token string">"q"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    
+    <span class="token comment"># Step 3: Enter search query</span>
+    search_box<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"RAIT Dypatil"</span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Step 4: Submit search</span>
+    search_box<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>RETURN<span class="token punctuation">)</span>
+    
+    <span class="token comment"># Step 5: Wait for results</span>
+    wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>
+        EC<span class="token punctuation">.</span>presence_of_element_located<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">"search"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    
+    <span class="token comment"># Keep browser open for 10 seconds</span>
+    <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Press Enter to close the browser..."</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-finally">finally</span><span class="token punctuation">:</span>
+    <span class="token comment"># Step 6: Clean up</span>
+    driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><hr>
+<h4 id="2-run-the-script"><strong>2. Run the Script</strong> </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python rait_search.py
+</code></pre><hr>
+<h3 id="key-components-explained-1"><strong>Key Components Explained</strong> </h3>
+<ol>
+<li>
+<p><strong>Browser Initialization</strong></p>
+<ul>
+<li>Uses <code>webdriver-manager</code> for automatic ChromeDriver setup[1][3]</li>
+<li>Explicit wait (10 seconds) for reliable element loading[2][5]</li>
+</ul>
+</li>
+<li>
+<p><strong>Element Interaction</strong></p>
+<ul>
+<li>Locates search box using <code>By.NAME</code> selector[4][5]</li>
+<li>Uses <code>send_keys()</code> for text input and form submission[2][4]</li>
+</ul>
+</li>
+<li>
+<p><strong>Validation</strong></p>
+<ul>
+<li>Waits for search results container (<code>id="search"</code>) to load</li>
+<li>Manual verification via console input</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="expected-workflow"><strong>Expected Workflow</strong> </h3>
+<ol>
+<li>Chrome browser opens automatically</li>
+<li>Navigates to <a href="http://Google.com">Google.com</a></li>
+<li>Types "RAIT Dypatil" in search box</li>
+<li>Displays search results</li>
+<li>Browser remains open until user presses Enter</li>
+</ol>
+<hr>
+<h3 id="troubleshooting-5"><strong>Troubleshooting</strong> </h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browser doesn't open</td>
+<td>Check Chrome/WebDriver versions</td>
+</tr>
+<tr>
+<td>"Element not found"</td>
+<td>Increase wait time from 10 to 15 seconds</td>
+</tr>
+<tr>
+<td>ChromeDriver errors</td>
+<td>Run <code>pip install --upgrade webdriver-manager</code></td>
+</tr>
+<tr>
+<td>Permission issues</td>
+<td>Run script as Administrator</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="best-practices"><strong>Best Practices</strong> </h3>
+<ol>
+<li>Use explicit waits instead of <code>time.sleep()</code>[3][5]</li>
+<li>Always include <code>driver.quit()</code> to prevent zombie processes</li>
+<li>Consider headless mode for background execution:<pre data-role="codeBlock" data-info="python" class="language-python python"><code>options <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--headless=new"</span><span class="token punctuation">)</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>options<span class="token operator">=</span>options<span class="token punctuation">)</span>
+</code></pre></li>
+</ol>
+<hr>
+<p>Here's the simplest way to Dockerize a PHP project and push to Docker Hub:</p>
+<hr>
+<h3 id="experiment-7-create-an-image-of-php-project-and-push-on-dockerhub-repository"><strong>Experiment 7 Create an image of php project and push on Dockerhub repository</strong> </h3>
+<ol>
+<li>
+<p><strong>Create <code>Dockerfile</code></strong> (no extensions):</p>
+<pre data-role="codeBlock" data-info="dockerfile" class="language-dockerfile dockerfile"><code><span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> php:8-apache</span>
+<span class="token instruction"><span class="token keyword keyword-COPY">COPY</span> . /var/www/html/</span>
+</code></pre></li>
+<li>
+<p><strong>Build Image</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> build <span class="token parameter variable">-t</span> yourusername/php-project <span class="token builtin class-name">.</span>
+</code></pre></li>
+<li>
+<p><strong>Login to Docker Hub</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> login
+</code></pre></li>
+<li>
+<p><strong>Push to Docker Hub</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> push yourusername/php-project
+</code></pre></li>
+</ol>
+<hr>
+<h3 id="example"><strong>Example</strong> </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># For a project named "myapp"</span>
+<span class="token function">docker</span> build <span class="token parameter variable">-t</span> raitstudent/myapp <span class="token builtin class-name">.</span>
+<span class="token function">docker</span> push raitstudent/myapp
+</code></pre><p><strong>Done!</strong><br>
+Access it later anywhere with:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> run <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 raitstudent/myapp
+</code></pre><hr>
+<p>Here's a concise guide for <strong>Experiment 8</strong> using Docker commands on Windows:</p>
+<hr>
+<h2 id="8-docker-image-modification-pull-and-push"><strong>8. Docker Image Modification, Pull and Push</strong> </h2>
+<p><strong>Objective</strong>: Modify Ubuntu image and push to Docker Hub</p>
+<hr>
+<h3 id="step-by-step-commands"><strong>Step-by-Step Commands</strong> </h3>
+<ol>
+<li>
+<p><strong>Pull Official Ubuntu Image</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> pull ubuntu:latest
+</code></pre></li>
+<li>
+<p><strong>Create Container and Add File</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--name</span> temp-container ubuntu /bin/bash
+</code></pre><p>Inside container:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">touch</span> /testfile
+<span class="token builtin class-name">exit</span>
+</code></pre></li>
+<li>
+<p><strong>Commit Changes to New Image</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> commit temp-container your-dockerhub-username/ubuntu-modified
+</code></pre></li>
+<li>
+<p><strong>Tag Image</strong> (if needed):</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> tag your-dockerhub-username/ubuntu-modified:latest your-dockerhub-username/ubuntu-modified:v1
+</code></pre></li>
+<li>
+<p><strong>Push to Docker Hub</strong>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> login
+<span class="token function">docker</span> push your-dockerhub-username/ubuntu-modified
+</code></pre></li>
+</ol>
+<hr>
+<h3 id="verification"><strong>Verification</strong> </h3>
+<ol>
+<li>Check Docker Hub for your new repository.</li>
+<li>Pull the image elsewhere:<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> pull your-dockerhub-username/ubuntu-modified
+<span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--rm</span> your-dockerhub-username/ubuntu-modified <span class="token function">ls</span> /
+</code></pre>You should see <code>testfile</code> in the root directory.</li>
+</ol>
+<hr>
+<h3 id="key-notes"><strong>Key Notes</strong> </h3>
+<ul>
+<li>Replace <code>your-dockerhub-username</code> with your actual Docker ID</li>
+<li>Create the repository on Docker Hub first (via website) if it doesn't exist</li>
+<li>Use <code>docker ps -a</code> to find container ID if you closed the terminal</li>
+</ul>
+<p><strong>Time</strong>: Entire process takes &lt;5 minutes.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
